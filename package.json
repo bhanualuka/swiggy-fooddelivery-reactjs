@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Hi this is Bhanupraksah learning Namaste-react  by Akshay saini , So I personally suggest you to go through his Tutorials ",
+  "scripts": {
+    "start": "parcel index.html",
+    "production": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "bhanualuka"
+  },
+  "author": "Akshay sani and Bhanu prakash",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "broswerslist": [
+    "last 2 versions"
+  ]
+}
+
