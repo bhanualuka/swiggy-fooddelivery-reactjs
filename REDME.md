@@ -26,7 +26,7 @@ NOTE: React will overwrite everything inside "root" and replaces with whatever g
 // INTRODUCING JSX 👋
 
 **Points to Remembar**
-// jsx is a javascript extension syntax that makes easier to create "React Element"
+// jsx is a javascript extension syntax that makes easier to create "React Element" or "React Code".
 // jsx is not a part of react , and react is also not a part of jsx
 // jsx is not html, jsx is not javascript,
 // jsx is a html or xml like syntax
@@ -128,5 +128,30 @@ root.render(<ComponentComposition />);
 --> We can use component in three different ways in jsx one is with in curlbraces we can call the component as js function{component()}
 --> We can use coponent as like this to </Componenet>
 --> we can use componnet as like this alse <Component> </Component>
+
+ASSIGNMENT QUESTIONS:
+● What is JSX?
+● Superpowers of JSX
+● Role of type attribute in script tag? What options can I use there?
+● {TitleComponent} vs {<TitleComponent/>} vs
+{<TitleComponent></TitleComponent>} in JSX
+
+CODING ASSIGNMENT:
+
+● Create a Nested header Element using React.createElement(h1,h2,h3 inside a
+div with class “title”)
+○ Create the same element using JSX
+○ Create a functional component of the same with JSX
+○ Pass attributes into the tag in JSX
+○ Composition of Component(Add a component inside another)
+○ {TitleComponent} vs {<TitleComponent/>} vs
+{<TitleComponent></TitleComponent>} in JSX
+
+● Create a Header Component from scratch using Functional Components with
+JSX
+○ Add a Logo on left
+○ Add a search bar in middle
+○ Add User icon on right
+○ Add CSS to make it look nice
 
 ---------------------------------------------END----------------------------------------------------

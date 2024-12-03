@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+.container {
+  /* border: 2px solid black; */
+  background-color: rgb(29, 35, 42);
+  width: auto;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+.headrs-header {
+  margin-top: 8px;
+  color: whitesmoke;
+}
+
+.searc-bar input {
+  border-radius: 8px;
+  border: lightblue;
+  height: 30px;
+  width: 280px;
+  margin-top: 15px;
+}
+
+.logo {
+  width: 70px;
+  height:70px;
+  border-radius: 50%;
+  
+}

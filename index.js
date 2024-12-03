@@ -1,82 +1,98 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+// import About from "./src/Components/About";
 
-// INTRODUCING JSX 👋
-// jsx is a javascript extension syntax that makes easier to create "React Element"
-// jsx is not  a part of react , and react is also not a part of jsx
-// jsx is not html, jsx is not javascript,
-// jsx is a html or xml like syntax
+import Error from "./src/Components/Error";
+import Header from "./src/Components/Header";
+import Body from "./src/Components/Body";
+import Contact from "./src/Components/Contact";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
+import ShimmerUI from "./src/Components/ShimmerUI.js";
+// import Grocery from "./src/Components/Grocery";
 
-// Behind the secens of jsx 👀
-// --> Jsx is transpailed to browser understandable  before it reaches to the js engine
-// --> This is doing by Parcel🔥 the beast of react 🐦‍🔥
-// --> Parcel itself doesnt doing but it gives reponsibilites to  Babel✨
-// --> Babel is a package  is a javascript comapiler or transpiler that converts the jsx into the browser understandable code.
+const Grocery = lazy(() => import("./src/Components/Grocery"));
+const About = lazy(() => import("./src/Components/About"));
 
-// React.createElement => reactElement-Js Object => Html element(browser understandable)
-
-/* const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Namaste react from react element "
-);
- */
-
-// jsxHeading => React.creatElement => ReactElement - Js Object => Html element
-
-// JSX => REACT.CREATELEMENT => REACT_ELEMTN -JS OBJECT => HTML ELEMENT --> PARCEL - BABEL
-
-/* const jsxHeading = (
-  <h1 id="heading" className="hello" tabIndex="5">
-    Namaste React from jsx 🚀{" "}
-  </h1>
-);
-console.log(jsxHeading); */
-
-// Component
-// Functional Component
-
-const FirstComponent = () => <h1>Namaste React 🚀 </h1>;
-const SecondComponent = () => <h1 className="Second">From Second Component</h1>;
-
-// Component Composition
-// Component Composition means Composition the components in a single component or putting a component in another component
-const ComponentComposition = () => (
-  <div>
-    <h1>From the Component Composition</h1>
-    <FirstComponent />
-    <SecondComponent />
-  </div>
-);
-
-// In Case of name and anonymous functions  we must use function syntax (curly braces for open and close and return keyword to wrap the jsx and to return it)
-
-const NamedFunction = function () {
+const App = () => {
   return (
-    <>
-      <h1>Jai Sai Master</h1>
-      <h2>Jai Bapuji maharaj</h2>
-      {/* {ReactElement} */}
-      <h4>{javascript}</h4>
-    </>
+    <div>
+      <Header />
+      <Outlet />
+    </div>
   );
 };
 
-const javascript = "JavaScript";
+export default App;
 
-const ReactElement = (
-  <div>
-    <h1> React Element</h1>
-    {/* {NamedFunction()}
-    <NamedFunction /> */}
-    <NamedFunction></NamedFunction>
-  </div>
-);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: (
+          <Suspense fallback={<ShimmerUI />}>
+            <About />
+          </Suspense>
+        ),
+      },
 
-root = ReactDOM.createRoot(document.getElementById("root"));
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<ShimmerUI />}>
+            <Grocery />{" "}
+          </Suspense>
+        ),
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// console.log(root);
+
+root.render(<RouterProvider router={appRouter} />);
+
+/* import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./src/App"; */
+
+/**
+ * Header
+ *  - Logo
+ *  - NavItems
+ * Body
+ * - Search
+ * - Restaurant Container
+ *   - Restaurant Card
+ *     -Img , name of the restaturant, ..etc
+ * Footer
+ *  - copyright
+ *  - Links
+ *  - Address
+ *  - Contact
+ */
+
+/* const root = ReactDOM.createRoot(document.getElementById("root"));
 
 console.log(root);
 
-// root.render(<ComponentComposition />);
-
-root.render(ReactElement);
+root.render(<App />);
+ */
