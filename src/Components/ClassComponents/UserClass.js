@@ -4,7 +4,7 @@ class UserClass extends React.Component {
   // To acess props in class based components we use constructor method and super() function
   constructor(props) {
     super(props);
-    console.log(this.props.name, "constructor(){}");
+    // console.log(this.props.name, "constructor(){}");
 
     /* 
     this.state = {
@@ -31,19 +31,19 @@ class UserClass extends React.Component {
       profile: res,
     });
 
-    console.log(this.props.name, "ComponentDiMOunt()");
+    // console.log(this.props.name, "ComponentDiMOunt()");
   }
 
   componentDidUpdate() {
-    console.log("Component Did Update()");
+    // console.log("Component Did Update()");
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount");
+    // console.log("componentWillUnmount");
   }
   render() {
     // const { name, location, Contact } = this.props;
-    console.log(this.props.name, "Render()");
+    // console.log(this.props.name, "Render()");
 
     return (
       <div className="About-container">

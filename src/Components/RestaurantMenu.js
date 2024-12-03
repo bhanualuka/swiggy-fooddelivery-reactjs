@@ -3,6 +3,7 @@ import useRestaurantMenu from "../utilits/customHooks/useRestaurantMenu";
 import { BASE_URL_IMAGE } from "../utilits/constants";
 import { useParams } from "react-router-dom";
 import ShimmerUI from "./ShimmerUI";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   // const [resMenu, setResMenu] = useState(null);
@@ -33,7 +34,7 @@ const RestaurantMenu = () => {
     resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   // console.log(itemCards);
 
-  console.log(resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  // console.log(resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
   const categories =
     resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -58,27 +59,22 @@ const RestaurantMenu = () => {
         <small className="font-bold">{cuisines.join(" , ")}</small>
       </div>
 
+      {/* <div className=""> */}
+      <div className="ml-[500px] w-[700px]">
+        {categories.map((category) => {
+          return (
+            <div
+              key={category?.card?.card?.title}
+              className="Menu-cards w-[700px]"
+            >
+              <RestaurantCategory data={category?.card?.card} />
+            </div>
+          );
+        })}
+        {/* </div> */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Menu image card */}
-        <div className="flex flex-wrap">
+        {/* Menu image card */}
+        {/*       <div className="flex flex-wrap">
         {itemCards.map((item) => {
           const {
             card: {
@@ -99,6 +95,7 @@ const RestaurantMenu = () => {
             </div>
           );
         })}
+      </div> */}
       </div>
     </div>
   );

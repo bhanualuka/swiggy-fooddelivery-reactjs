@@ -5,7 +5,7 @@ import React from "react";
 class AboutClass extends React.Component {
   constructor() {
     super();
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
 
     this.state = {
       location: "Nagarkurnoll",
@@ -13,7 +13,7 @@ class AboutClass extends React.Component {
   }
 
   render() {
-    console.log("Parent Render()");
+    // console.log("Parent Render()");
 
     return (
       // const { name, Contact, location }=this.state.props
