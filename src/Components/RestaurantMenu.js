@@ -7,6 +7,7 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   // const [resMenu, setResMenu] = useState(null);
+  const [showIndex, setShowIndex] = useState(null);
   const { resId } = useParams();
 
   // useRestaurant Cutom Hook (For Api call)
@@ -54,23 +55,30 @@ const RestaurantMenu = () => {
         <h2 className="font-bold text-xl"> {name} </h2>
         <p className="font-bold text-sm">
           {avgRatingString}- ({totalRatingsString})
-          <span> {costForTwoMessage} </span>
+          {/* <span> {costForTwoMessage} </span> */}
         </p>
         <small className="font-bold">{cuisines.join(" , ")}</small>
       </div>
 
       {/* <div className=""> */}
       <div className="ml-[500px] w-[700px]">
-        {categories.map((category) => {
+        {categories.map((category, index) => {
           return (
             <div
               key={category?.card?.card?.title}
               className="Menu-cards w-[700px]"
             >
-              <RestaurantCategory data={category?.card?.card} />
+              <RestaurantCategory
+                show={index === showIndex}
+                setShowIndex={() =>
+                  setShowIndex(index === showIndex ? null : index)
+                }
+                data={category?.card?.card}
+              />
             </div>
           );
         })}
+
         {/* </div> */}
 
         {/* Menu image card */}

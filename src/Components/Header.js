@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utilits/customHooks/useOnlineStatus";
+import { UserContext } from "../utilits/context/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
 
   const Status = useOnlineStatus();
+
+  const UserNameConsume = useContext(UserContext);
+  console.log(UserNameConsume);
+
+  const { loggedInUser } = UserNameConsume;
 
   // let btnName = "Login";
 
@@ -58,6 +64,7 @@ const Header = () => {
           </li>
 
           <li className="p-4 text-lg">Cart</li>
+
           <button
             className="login-btn text-lg w-[66px] border border-gray rounded-md bg-blue-200"
             onClick={() => {
@@ -66,6 +73,7 @@ const Header = () => {
           >
             {btnName}
           </button>
+          <li className=" font-bold text-lg pt-4 pl-4"> {loggedInUser} </li>
         </ul>
       </div>
     </div>

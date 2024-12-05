@@ -17,15 +17,14 @@ const ItemList = ({ items }) => {
                 {item.card.info.name}
               </span>
               <h4 className="font-bold text-lg">
-                {" "}
-                &#8377;{" "}
+                &#8377;
                 {item.card.info.price
                   ? parseInt(item.card.info.price / 100)
                   : Math.floor(item.card.info.defaultPrice / 100)}
               </h4>
 
               <div className="my-4">
-                <span className="text-green-600 my-6 py-2"> ★</span>
+                <span className="text-green-600 my-6 py-2">★</span>
                 <span className="my-6  py-4 font-bold text-lg text-green-600">
                   {item.card.info.ratings.aggregatedRating.rating
                     ? item.card.info.ratings.aggregatedRating.rating

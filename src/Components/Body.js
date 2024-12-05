@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard from "./RestuarantCard";
 import useOnlineStatus from "../utilits/customHooks/useOnlineStatus";
+import { UserContext } from "../utilits/context/UserContext";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -10,6 +11,8 @@ const Body = () => {
   const Status = useOnlineStatus();
 
   console.log(listOfRestaurant);
+  const { userName, setUserName } = useContext(UserContext);
+  console.log(userName);
 
   // Local Data
   /*   const [data, setData] = useState([
@@ -64,6 +67,17 @@ const Body = () => {
     <>
       <div className="flex m-6 ">
         <div className="flex px-4">
+          <label htmlFor="userNAme" className="mt-1 font-bold  ">
+            UserName:
+          </label>
+          <input
+            type="text"
+            id="userNAme"
+            placeholder="username.."
+            className="border border-gray-300 mr-6 rounded-lg"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
           <input
             className="border border-gray-400 shadow-md rounded-md bg-green-100 "
             type="text"
@@ -89,7 +103,6 @@ const Body = () => {
               setFilterRestaurant(searchData);
             }}
           >
-            {" "}
             Search
           </button>
         </div>

@@ -1,8 +1,13 @@
 import ShimmerUI from "./ShimmerUI";
 import { BASE_URL_IMAGE } from "../utilits/constants";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../utilits/context/UserContext";
 
 const RestaurantCard = ({ Data }) => {
+  const UserName = useContext(UserContext);
+  const { loggedInUser } = UserName;
+
   return (
     <>
       {Data.length > 0 ? (
@@ -38,6 +43,7 @@ const RestaurantCard = ({ Data }) => {
                     <h4> {cuisines.join(",")} </h4>
                     <h5>{costForTwo}</h5>
                     <h5> {slaString} </h5>
+                    <span> User : {loggedInUser} </span>
                   </div>
                 </div>
               </div>

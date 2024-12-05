@@ -1,8 +1,13 @@
-import React, { lazy, Suspense } from "react";
+import React, {
+  createContext,
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import About from "./src/Components/About";
-
 import Error from "./src/Components/Error";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
@@ -10,15 +15,29 @@ import Contact from "./src/Components/Contact";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import ShimmerUI from "./src/Components/ShimmerUI.js";
 // import Grocery from "./src/Components/Grocery";
-
+import { createContext } from "react";
+import { UserContext } from "./src/utilits/context/UserContext.js";
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 const About = lazy(() => import("./src/Components/About"));
 
+// const GlobalData = createContext();
+
 const App = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const obj = {
+      userName: "Bhanu prakash",
+    };
+    setUserName(obj.userName);
+  }, []);
+
   return (
     <div>
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
     </div>
   );
 };

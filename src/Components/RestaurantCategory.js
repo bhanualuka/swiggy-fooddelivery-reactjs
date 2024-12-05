@@ -1,15 +1,16 @@
-import { useState } from "react";
+import {useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
-  const [show, setShow] = useState(false);
-  // console.log(data); =
+
+const RestaurantCategory = ({ data, show, setShowIndex }) => {
+  // const [show, setShow] = useState(false);
+  // console.log(data);
 
   const handleAcord = () => {
-    console.log("Clicked");
-
-    setShow(!show);
+    // setShow(!show);
+    setShowIndex();
   };
+
 
   return (
     <div className="m-4 p-3 shadow-lg rounded-xl cursor-pointer">

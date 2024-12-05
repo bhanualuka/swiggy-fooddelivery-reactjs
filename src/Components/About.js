@@ -1,6 +1,7 @@
+import { UserContext } from "../utilits/context/UserContext";
 import UserClass from "./ClassComponents/UserClass";
 import User from "./User";
-import React from "react";
+import React, { useContext } from "react";
 
 class AboutClass extends React.Component {
   constructor() {
@@ -19,6 +20,13 @@ class AboutClass extends React.Component {
       // const { name, Contact, location }=this.state.props
       <div>
         <h1>About Page!!!</h1>
+
+        <UserContext.Consumer>
+          {({ loggedInUser }) => (
+            <h1 className="font-bold text-xl"> UseContex: {loggedInUser}</h1>
+          )}
+        </UserContext.Consumer>
+
         <User
           name={"Bhanu prakash"}
           Contact="alukabhanuprkash@gmail.com"
@@ -71,7 +79,3 @@ const About = () => {
 };
 export default About;
  */
-
-
-
-
