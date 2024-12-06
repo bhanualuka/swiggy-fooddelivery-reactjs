@@ -17,6 +17,7 @@ import ShimmerUI from "./src/Components/ShimmerUI.js";
 // import Grocery from "./src/Components/Grocery";
 import { createContext } from "react";
 import { UserContext } from "./src/utilits/context/UserContext.js";
+import { MailContext } from "./src/utilits/context/MailContext.js";
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 const About = lazy(() => import("./src/Components/About"));
 
@@ -35,7 +36,9 @@ const App = () => {
   return (
     <div>
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <Header />
+        <MailContext.Provider>
+          <Header />
+        </MailContext.Provider>
         <Outlet />
       </UserContext.Provider>
     </div>
@@ -70,7 +73,7 @@ const appRouter = createBrowserRouter([
         path: "/grocery",
         element: (
           <Suspense fallback={<ShimmerUI />}>
-            <Grocery />{" "}
+            <Grocery />
           </Suspense>
         ),
       },

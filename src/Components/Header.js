@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utilits/customHooks/useOnlineStatus";
 import { UserContext } from "../utilits/context/UserContext";
+import { MailContext } from "../utilits/context/MailContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -10,6 +11,9 @@ const Header = () => {
 
   const UserNameConsume = useContext(UserContext);
   console.log(UserNameConsume);
+
+  const Mail = useContext(MailContext);
+  console.log(Mail);
 
   const { loggedInUser } = UserNameConsume;
 
