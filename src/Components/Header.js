@@ -3,19 +3,25 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utilits/customHooks/useOnlineStatus";
 import { UserContext } from "../utilits/context/UserContext";
 import { MailContext } from "../utilits/context/MailContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
 
+  // Custom Hook.
   const Status = useOnlineStatus();
 
+  // useContext
   const UserNameConsume = useContext(UserContext);
-  console.log(UserNameConsume);
+  // console.log(UserNameConsume);
 
   const Mail = useContext(MailContext);
   console.log(Mail);
 
   const { loggedInUser } = UserNameConsume;
+
+  // Redux Toolkit
+  const cartlength = useSelector((store) => store.cart.items);
 
   // let btnName = "Login";
 
@@ -53,21 +59,34 @@ const Header = () => {
         <ul className="flex  mr-16 mt-4">
           <li className="p-4">Online Status: {Status ? "🔴" : "✅"}</li>
 
-          <li className="p-4 text-lg">
-            <Link to="/">Home</Link>{" "}
+          <li className="p-4 text-lg  ">
+            <Link to="/" className=" hover:text-gray-500 ">
+              HOME
+            </Link>{" "}
+          </li>
+          <li className="p-4 text-lg  ">
+            <Link to="/about" className=" hover:text-gray-500 ">
+              {" "}
+              ABOUT US
+            </Link>
           </li>
           <li className="p-4 text-lg">
-            <Link to="/about"> About Us</Link>
-          </li>
-          <li className="p-4 text-lg">
-            {" "}
-            <Link to="/contact">Contact</Link>{" "}
+            <Link to="/contact" className=" hover:text-gray-500 ">
+              CONTACT
+            </Link>
           </li>
           <li className="p-4 text-lg ">
-            <Link to="/grocery">Grocery </Link>
+            <Link to="/grocery" className=" hover:text-gray-500 ">
+              GROCERY{" "}
+            </Link>
           </li>
 
-          <li className="p-4 text-lg">Cart</li>
+          <li className="p-4 text-lg">
+            <Link to="/cart" className=" hover:text-gray-500 ">
+              CART
+            </Link>{" "}
+            {cartlength.length}
+          </li>
 
           <button
             className="login-btn text-lg w-[66px] border border-gray rounded-md bg-blue-200"

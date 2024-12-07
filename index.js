@@ -18,6 +18,9 @@ import ShimmerUI from "./src/Components/ShimmerUI.js";
 import { createContext } from "react";
 import { UserContext } from "./src/utilits/context/UserContext.js";
 import { MailContext } from "./src/utilits/context/MailContext.js";
+import { Provider } from "react-redux";
+import appStore from "./src/utilits/ReduxToolkit/Store/AppStore.js";
+import CartPage from "./src/Components/cart/CartPage.js";
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 const About = lazy(() => import("./src/Components/About"));
 
@@ -35,12 +38,14 @@ const App = () => {
 
   return (
     <div>
-      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <MailContext.Provider>
-          <Header />
-        </MailContext.Provider>
-        <Outlet />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+          <MailContext.Provider>
+            <Header />
+          </MailContext.Provider>
+          <Outlet />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -68,6 +73,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/grocery",

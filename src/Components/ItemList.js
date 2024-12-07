@@ -1,7 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL_IMAGE } from "../utilits/constants";
+import { addItem } from "../utilits/ReduxToolkit/Slices/CartSlice";
 
 const ItemList = ({ items }) => {
   console.log(items);
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -44,7 +51,12 @@ const ItemList = ({ items }) => {
                 src={BASE_URL_IMAGE + item.card.info.imageId}
                 alt=""
               />
-              <button className="text-green-700 font-bold text-xl mr-2 mb-10 w-28 h-8 rounded-lg border border-gray-350 hover:bg-gray-300">
+              <button
+                onClick={() => {
+                  dispatch(addItem(item));
+                }}
+                className="text-green-700 font-bold text-xl mr-2 mb-10 w-28 h-8 rounded-lg border border-gray-350 hover:bg-gray-300"
+              >
                 ADD
               </button>
             </div>
