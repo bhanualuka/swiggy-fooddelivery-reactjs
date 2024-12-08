@@ -10,9 +10,9 @@ const Body = () => {
 
   const Status = useOnlineStatus();
 
-  console.log(listOfRestaurant);
+  // console.log(listOfRestaurant);
   const { userName, setUserName } = useContext(UserContext);
-  console.log(userName);
+  // console.log(userName);
 
   // Local Data
   /*   const [data, setData] = useState([
@@ -123,7 +123,7 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap">
-        <RestaurantCard Data={filterdRestaurant} />
+        <RestaurantCard resData={filterdRestaurant} />
       </div>
     </>
   );

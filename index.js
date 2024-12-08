@@ -19,7 +19,7 @@ import { createContext } from "react";
 import { UserContext } from "./src/utilits/context/UserContext.js";
 import { MailContext } from "./src/utilits/context/MailContext.js";
 import { Provider } from "react-redux";
-import appStore from "./src/utilits/ReduxToolkit/Store/AppStore.js";
+import {appStore} from "./src/utilits/ReduxToolkit/Store/AppStore.js";
 import CartPage from "./src/Components/cart/CartPage.js";
 const Grocery = lazy(() => import("./src/Components/Grocery"));
 const About = lazy(() => import("./src/Components/About"));

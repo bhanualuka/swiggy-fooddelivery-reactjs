@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../utilits/context/UserContext";
 
-const RestaurantCard = ({ Data }) => {
+const RestaurantCard = (props) => {
+  const { resData } = props;
   const UserName = useContext(UserContext);
   const { loggedInUser } = UserName;
+  console.log(resData);
 
   return (
     <>
-      {Data.length > 0 ? (
-        Data.map((item) => {
+      {resData.length > 0 ? (
+        resData.map((item) => {
           const {
             info: {
               id,
@@ -29,7 +31,7 @@ const RestaurantCard = ({ Data }) => {
           return (
             <Link key={id} to={"/restaurants/" + id}>
               <div className="w-[250px] p-4 m-6 rounded-lg border border-black-200 bg-gray-200  hover:bg-gray-300 ">
-                <div className="">
+                <div>
                   <img
                     className="rounded-md"
                     src={`${BASE_URL_IMAGE}${cloudinaryImageId}`}

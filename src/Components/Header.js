@@ -16,7 +16,7 @@ const Header = () => {
   // console.log(UserNameConsume);
 
   const Mail = useContext(MailContext);
-  console.log(Mail);
+  // console.log(Mail);
 
   const { loggedInUser } = UserNameConsume;
 
@@ -83,9 +83,8 @@ const Header = () => {
 
           <li className="p-4 text-lg">
             <Link to="/cart" className=" hover:text-gray-500 ">
-              CART
+              CART({cartlength.length})
             </Link>{" "}
-            {cartlength.length}
           </li>
 
           <button
