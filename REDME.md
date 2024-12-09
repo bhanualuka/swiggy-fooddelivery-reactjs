@@ -156,7 +156,7 @@ JSX
 
 ---------------------------------------------END----------------------------------------------------
 
-# Namaste React 🚀 (Important Notes)
+# React 🚀 (Important Notes)
 
 # Parcel
 
@@ -178,7 +178,7 @@ JSX
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
 
-# Namaste Food
+# Planning FoodApp
 
 /\*\*
 
@@ -237,7 +237,7 @@ import {Component} from "path";
 - Integration Testing
 - End to End Testing - e2e testing
 
-# Setting up Testing in our app
+# Setting up Testing in my app
 
 - Install React Testing Library
 - Installed jest
